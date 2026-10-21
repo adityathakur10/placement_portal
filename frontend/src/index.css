@@ -1,0 +1,629 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body::-webkit-scrollbar {
+    display: none !important;
+}
+
+@layer utilities {
+    .animate-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: .5;
+      }
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+body {
+    overflow: hidden;
+}
+
+
+.border-progress {
+  position: absolute;
+  left: 0;
+  width: 2px;
+  transform-origin: top;
+  animation: fillBorder 0.6s ease-out forwards;
+}
+
+.step-complete {
+  animation: pop 0.3s ease-out;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Rich Text Editor Styles */
+.ql-container {
+  font-family: inherit !important;
+}
+
+.ql-editor {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.ql-editor p {
+  margin-bottom: 1em;
+}
+
+.ql-snow .ql-toolbar button:hover,
+.ql-snow .ql-toolbar button:focus {
+  color: #ef4444;
+}
+
+.ql-snow .ql-toolbar button.ql-active,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active {
+  color: #ef4444;
+}
+
+.ql-snow .ql-toolbar button:hover .ql-fill,
+.ql-snow .ql-toolbar button.ql-active .ql-fill {
+  fill: #ef4444;
+}
+
+.ql-snow .ql-toolbar button:hover .ql-stroke,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke {
+  stroke: #ef4444;
+}
+
+/* Add to your global CSS file */
+.book-content {
+  position: relative;
+}
+
+.book-content::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.1), rgba(0,0,0,0.05));
+  z-index: 10;
+}
+
+.book-content > div {
+  position: relative;
+  background-image: linear-gradient(to right, #fff 0%, #f9f9f9 49.9%, #fff 50.1%, #f9f9f9 100%);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Add these styles to fix date picker appearance */
+.react-datepicker {
+  font-family: inherit;
+  border-color: #e5e7eb;
+}
+
+.react-datepicker__header {
+  background-color: white;
+  border-bottom-color: #f3f4f6;
+  padding-top: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.react-datepicker__day--selected, 
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__time-list-item--selected {
+  background-color: #ef4444 !important;
+  color: white !important;
+  border-radius: 9999px;
+}
+
+.react-datepicker__day--today,
+.react-datepicker__day:hover,
+.react-datepicker__time-list-item:hover {
+  border-radius: 9999px;
+}
+
+.react-datepicker__time-container,
+.react-datepicker__time-container .react-datepicker__time {
+  border-color: #f3f4f6;
+  padding-top: 0.5rem;
+}
+
+/* Fix datepicker positioning */
+.react-datepicker-popper {
+  z-index: 100 !important; /* Increased from 50 to 100 */
+  position: absolute !important;
+  inset: auto !important;
+  transform: none !important;
+  margin-top: 8px !important;
+}
+
+.react-datepicker-wrapper {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+/* Add this to your existing datepicker styles */
+.datepicker-popper {
+  z-index: 1000 !important;
+  position: absolute !important;
+  left: 0 !important;
+  margin-top: 2px !important;
+  width: 100% !important;
+}
+
+/* Create a portal for the datepicker */
+#datepicker-portal {
+  position: relative;
+  z-index: 1000;
+}
+
+/* Additional styles for inline datepicker */
+.react-datepicker--inline {
+  width: 100% !important;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-bottom: 1rem;
+}
+
+.react-datepicker__month-container {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.react-datepicker__day-names {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.react-datepicker__day-name {
+  color: #6b7280;
+  font-weight: 500;
+  width: 2rem;
+  margin: 0;
+}
+
+.react-datepicker__month {
+  margin: 0.5rem 0 0;
+}
+
+.react-datepicker__day {
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: 0;
+  border-radius: 9999px;
+}
+
+.react-datepicker__day:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.react-datepicker__time-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 200px !important;
+  padding: 0 !important;
+  overflow-y: auto;
+}
+
+.react-datepicker__time-list-item {
+  height: auto !important;
+  padding: 0.5rem !important;
+  line-height: 1.25 !important;
+  text-align: center;
+  border-radius: 0.25rem;
+}
+
+.react-datepicker__time-list-item:hover {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  color: #ef4444 !important;
+}
+
+.react-datepicker__navigation {
+  top: 0.75rem;
+}
+
+.react-datepicker__current-month {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  padding-top: 0.25rem;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #ef4444;
+}
+
+/* Dashboard-style Calendar */
+.dashboard-datepicker-container {
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 50;
+}
+
+.dashboard-calendar {
+  background: transparent !important;
+  border: none !important;
+  width: 100% !important;
+  box-shadow: none !important;
+}
+
+.dashboard-calendar .react-datepicker__month-container {
+  width: 100%;
+  background-color: transparent;
+  padding: 0;
+}
+
+.dashboard-calendar .react-datepicker__header {
+  display: none; /* Hide the default header */
+}
+
+.dashboard-calendar .react-datepicker__month {
+  margin: 0;
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 2px !important;
+}
+
+.dashboard-calendar .react-datepicker__week {
+  display: contents !important;
+}
+
+.dashboard-calendar .react-datepicker__day {
+  color: white;
+  width: auto !important;
+  height: 2rem !important;
+  line-height: 2rem !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  float: none !important;
+}
+
+.dashboard-calendar .react-datepicker__day--outside-month {
+  color: rgba(255,255,255,0.4);
+}
+
+.custom-time-scroller::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-time-scroller::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+}
+
+.custom-time-scroller::-webkit-scrollbar-thumb {
+  background: rgba(239, 68, 68, 0.5);
+  border-radius: 10px;
+}
+
+.custom-time-scroller::-webkit-scrollbar-thumb:hover {
+  background: rgba(239, 68, 68, 0.7);
+}
+
+/* Add these styles for the DatePicker dropdown above the input */
+.deadline-picker-popup {
+  z-index: 1000 !important;
+}
+
+.deadline-picker-popup .react-datepicker {
+  font-family: inherit;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+}
+
+.deadline-picker-popup .react-datepicker__triangle {
+  display: none; /* Remove the little triangle pointer */
+}
+
+.deadline-picker-popup .react-datepicker__header {
+  background-color: white;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.deadline-picker-popup .react-datepicker__current-month {
+  color: #111827;
+  font-weight: 600;
+}
+
+.deadline-picker-popup .react-datepicker__day-name {
+  color: #6b7280;
+}
+
+.deadline-picker-popup .react-datepicker__time-container {
+  border-left-color: #f3f4f6;
+}
+
+.deadline-picker-popup .react-datepicker__time-container .react-datepicker__time {
+  background-color: white;
+}
+
+.deadline-picker-popup .react-datepicker__time-list-item--selected {
+  background-color: #ef4444 !important;
+}
+
+.deadline-picker-popup .react-datepicker__navigation-icon::before {
+  border-color: #6b7280;
+}
+
+.deadline-picker-popup .react-datepicker__navigation:hover .react-datepicker__navigation-icon::before {
+  border-color: #ef4444;
+}
+
+/* Add these styles to make date and time appear side by side */
+.side-by-side-picker {
+  position: relative;
+  overflow: visible !important;
+}
+
+.side-by-side-picker .react-datepicker__month-container,
+.side-by-side-picker + .react-datepicker__time-container {
+  width: 50% !important;
+  float: left !important;
+}
+
+.deadline-picker-popup .react-datepicker {
+  display: flex !important;
+  flex-direction: row !important;
+  min-width: 450px !important;
+}
+
+.deadline-picker-popup .react-datepicker__time-container {
+  border-left: 1px solid #f3f4f6 !important;
+  width: 50% !important;
+  right: 0 !important;
+  position: relative !important;
+  float: right !important;
+}
+
+.deadline-picker-popup .react-datepicker__time-container .react-datepicker__time {
+  height: 250px !important;
+  overflow-y: auto;
+}
+
+.deadline-picker-popup .react-datepicker__time-list {
+  display: block !important;
+  height: 250px !important;
+  overflow-x: hidden !important;
+}
+
+.deadline-picker-popup .react-datepicker__time-list-item {
+  width: 100% !important;
+  text-align: center !important;
+  padding: 8px 10px !important;
+  height: auto !important;
+}
+
+.deadline-picker-popup .react-datepicker__time-list-item:hover {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  color: #ef4444 !important;
+}
+
+/* Make sure popup is properly positioned above input */
+.deadline-picker-popup {
+  margin-bottom: 10px !important;
+}
+
+/* Add these styles for DatePicker modal */
+.side-by-side-picker {
+  min-width: 450px !important;
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.side-by-side-picker .react-datepicker__month-container {
+  width: 50% !important;
+}
+
+.side-by-side-picker .react-datepicker__time-container {
+  width: 50% !important;
+  border-left: 1px solid #f3f4f6 !important;
+}
+
+.side-by-side-picker .react-datepicker__time {
+  height: 250px !important;
+}
+
+/* Add these styles to ensure dropdowns appear above other elements */
+.dropdown-container {
+  position: relative;
+  z-index: 50;
+}
+
+.dropdown-menu {
+  z-index: 100;
+}
+
+/* Modern Calendar Styling */
+.modern-calendar {
+  border: none !important;
+  font-family: inherit !important;
+  width: 100% !important;
+  box-shadow: none !important;
+}
+
+.modern-calendar .react-datepicker__month-container {
+  padding: 1rem !important;
+  width: 50% !important;
+}
+
+.modern-calendar .react-datepicker__header {
+  background-color: white !important;
+  border-bottom: 1px solid #f3f4f6 !important;
+  padding-top: 1rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
+.modern-calendar .react-datepicker__current-month {
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  color: #111827 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.modern-calendar .react-datepicker__day-name {
+  color: #6b7280 !important;
+  font-weight: 500 !important;
+  width: 2.5rem !important;
+  margin: 0 !important;
+}
+
+.modern-calendar .react-datepicker__day {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  line-height: 2.5rem !important;
+  margin: 0 !important;
+  border-radius: 9999px !important;
+  transition: all 0.2s ease !important;
+}
+
+.modern-calendar .react-datepicker__day--selected {
+  background-color: #ef4444 !important;
+  color: white !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2) !important;
+}
+
+.modern-calendar .react-datepicker__day:hover {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  color: #ef4444 !important;
+}
+
+.modern-calendar .react-datepicker__time-container {
+  width: 50% !important;
+  border-left: 1px solid #f3f4f6 !important;
+}
+
+.modern-calendar .react-datepicker__time-container .react-datepicker__time {
+  height: 300px !important;
+  background-color: white !important;
+}
+
+.modern-calendar .react-datepicker__time-container .react-datepicker__time-box {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.modern-calendar .react-datepicker__time-list {
+  height: 100% !important;
+  overflow-y: auto !important;
+}
+
+.modern-calendar .react-datepicker__time-list-item {
+  padding: 0.75rem 1rem !important;
+  height: auto !important;
+  line-height: 1.25 !important;
+  transition: all 0.15s ease !important;
+}
+
+.modern-calendar .react-datepicker__time-list-item--selected {
+  background-color: #ef4444 !important;
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+.modern-calendar .react-datepicker__navigation {
+  top: 1rem !important;
+}
+
+.modern-calendar .react-datepicker__navigation--previous {
+  left: 1rem !important;
+}
+
+.modern-calendar .react-datepicker__navigation--next {
+  right: 1rem !important;
+}
+
+.modern-calendar .react-datepicker__navigation-icon::before {
+  border-color: #6b7280 !important;
+  border-width: 2px 2px 0 0 !important;
+  height: 8px !important;
+  width: 8px !important;
+  transition: border-color 0.15s ease !important;
+}
+
+.modern-calendar .react-datepicker__navigation:hover .react-datepicker__navigation-icon::before {
+  border-color: #ef4444 !important;
+}
+
+/* Custom scrollbar for time list */
+.modern-calendar .react-datepicker__time-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modern-calendar .react-datepicker__time-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.modern-calendar .react-datepicker__time-list::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 10px;
+}
+
+.modern-calendar .react-datepicker__time-list::-webkit-scrollbar-thumb:hover {
+  background-color: #ef4444;
+}
+
+/* Additional styles for proper dropdown positioning */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-end .dropdown-content {
+  right: 0;
+  left: auto;
+}
+
+/* Fix z-index issues with dropdowns */
+.dropdown .dropdown-content {
+  z-index: 50; 
+  position: absolute;
+}
+
+/* Fade-in animation for dropdowns */
+@keyframes dropdownFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown .dropdown-content {
+  animation: dropdownFadeIn 0.2s ease-out;
+}
+
